@@ -4,7 +4,155 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>NSFC Visualization</title>
     <script type="text/javascript" src="Libraries/d3/d3.min.js"></script>
-    <style>@font-face{font-family:'ProductSans';src:url("Resources/ProductSansRegular.ttf") format("truetype");}@font-face{font-family:'SourceSans';src:url("Resources/HyRegular.ttf") format("truetype");}@font-face{font-family:'SourceSans-Bold';src:url("Resources/HyBold.ttf") format("truetype");}@font-face{font-family:'ProductSans-Bold';src:url("/Resources/ProductSansBold.ttf") format("truetype");}@keyframes widthTransition{from{width:0;}to{}}@-moz-keyframes widthTransition{from{width:0;}to{}}@-webkit-keyframes  widthTransition{from{width:0;}to{}}@-o-keyframes widthTransition{from{width:0;}to{}}@keyframes myfirst3{from{}to{opacity:0.3;}}@-moz-keyframes myfirst3{from{}to{opacity:0.3;}}@-webkit-keyframes myfirst3{from{}to{opacity:0.3;}}@-o-keyframes myfirst3{from{}to{opacity:0.3;}}@keyframes myfirst{from{}to{opacity:0.6;}}@-moz-keyframes myfirst{from{}to{opacity:0.6;}}@-webkit-keyframes myfirst{from{}to{opacity:0.6;}}@-o-keyframes myfirst{from{}to{opacity:0.6;}}@keyframes myfirst2{from{}to{opacity:0;}}@-moz-keyframes myfirst2{from{}to{opacity:0;}}@-webkit-keyframes myfirst2{from{}to{opacity:0;}}@-o-keyframes myfirst2{from{}to{opacity:0;}}
+    <style>
+        @font-face {
+            font-family: 'ProductSans';
+            src: url("Resources/ProductSansRegular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'SourceSans';
+            src: url("Resources/HyRegular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'SourceSans-Bold';
+            src: url("Resources/HyBold.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'ProductSans-Bold';
+            src: url("Resources/ProductSansBold.ttf") format("truetype");
+        }
+
+        @keyframes widthTransition {
+            from {
+                width: 0;
+            }
+
+            to {}
+        }
+
+        @-moz-keyframes widthTransition {
+            from {
+                width: 0;
+            }
+
+            to {}
+        }
+
+        @-webkit-keyframes widthTransition {
+            from {
+                width: 0;
+            }
+
+            to {}
+        }
+
+        @-o-keyframes widthTransition {
+            from {
+                width: 0;
+            }
+
+            to {}
+        }
+
+        @keyframes myfirst3 {
+            from {}
+
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        @-moz-keyframes myfirst3 {
+            from {}
+
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        @-webkit-keyframes myfirst3 {
+            from {}
+
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        @-o-keyframes myfirst3 {
+            from {}
+
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes myfirst {
+            from {}
+
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        @-moz-keyframes myfirst {
+            from {}
+
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        @-webkit-keyframes myfirst {
+            from {}
+
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        @-o-keyframes myfirst {
+            from {}
+
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes myfirst2 {
+            from {}
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes myfirst2 {
+            from {}
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes myfirst2 {
+            from {}
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes myfirst2 {
+            from {}
+
+            to {
+                opacity: 0;
+            }
+        }
+
         .WidthTransitionAnimationToFull {
             animation: widthTransition .7s;
             -moz-animation: widthTransition .7s;
@@ -12,6 +160,7 @@
             -o-animation: widthTransition .7s;
             animation-fill-mode: forwards;
         }
+
         .OpacityTransitionAnimationToHalf {
             animation: myfirst .4s;
             -moz-animation: myfirst .4s;
@@ -19,6 +168,7 @@
             -o-animation: myfirst .4s;
             animation-fill-mode: forwards;
         }
+
         .OpacityTransitionAnimationToZero {
             animation: myfirst2 .4s;
             -moz-animation: myfirst2 .4s;
@@ -26,6 +176,7 @@
             -o-animation: myfirst2 .4s;
             animation-fill-mode: forwards;
         }
+
         .OpacityTransitionAnimationTo3 {
             animation: myfirst3 .4s;
             -moz-animation: myfirst3 .4s;
@@ -33,6 +184,7 @@
             -o-animation: myfirst3 .4s;
             animation-fill-mode: forwards;
         }
+
         html {
             font-family: 'ProductSans', 'SourceSans';
             font-size: 14px;
@@ -57,7 +209,8 @@
 </head>
 
 <body>
-    <svg id="VisualizationCanvas" viewbox="0 0 1520 730" width="1520" height="730" mlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve">
+    <svg id="VisualizationCanvas" viewbox="0 0 1520 730" width="1520" height="730" mlns="http://www.w3.org/2000/svg"
+        version="1.1" xml:space="preserve">
         <defs>
             <filter id="dropshadow" height="160%" width="160%">
                 <feGaussianBlur in="SourceAlpha" stdDeviation="5" /> <!-- stdDeviation is how much to blur -->
@@ -224,7 +377,8 @@
             M765.3-2.1L38.7,724.5l1.2,1.2L766.5-1L765.3-2.1z M763.1-4.4L36.5,722.3l1.2,1.2L764.3-3.2L763.1-4.4z M760.9-6.6L34.3,720
            l1.2,1.2L762.1-5.4L760.9-6.6z M758.7-8.8L32.1,717.8l1.2,1.2L759.8-7.6L758.7-8.8z M756.5-11L29.9,715.6l1.2,1.2L757.6-9.8
            L756.5-11z M754.3-13.2L27.6,713.4l1.2,1.2L755.4-12.1L754.3-13.2z M752-15.4L25.4,711.2l1.2,1.2L753.2-14.3L752-15.4z" />
-           <path id="mask1" d="M20.2-31.5l726.6,726.6l-1.2,1.2L19-30.3L20.2-31.5z M21.2-32.5l726.6,726.6l1.2-1.2L22.4-33.7L21.2-32.5z
+            <path id="mask1"
+                d="M20.2-31.5l726.6,726.6l-1.2,1.2L19-30.3L20.2-31.5z M21.2-32.5l726.6,726.6l1.2-1.2L22.4-33.7L21.2-32.5z
            M23.5-34.7L750,691.9l1.2-1.2L24.6-35.9L23.5-34.7z M25.7-37l726.5,726.7l1.2-1.2L26.8-38.1L25.7-37z M27.9-39.2l726.6,726.7
           l1.2-1.2L29.1-40.3L27.9-39.2z M30.1-41.4l726.6,726.7l1.2-1.2L31.3-42.5L30.1-41.4z M32.3-43.6L758.9,683l1.2-1.2L33.5-44.8
           L32.3-43.6z M34.5-45.8l726.6,726.6l1.2-1.2L35.7-47L34.5-45.8z M36.8-48l726.5,726.6l1.2-1.2L37.9-49.2L36.8-48z M39-50.3
@@ -368,7 +522,7 @@
           l1.2-1.2L-46.3,35.1L-47.5,36.2z M-45.3,34l726.6,726.7l1.2-1.2L-44.1,32.9L-45.3,34z M-43.1,31.8l726.6,726.6l1.2-1.2L-41.9,30.6 L-43.1,31.8z M-40.8,29.6l726.5,726.6l1.2-1.2L-39.7,28.4L-40.8,29.6z M-38.6,27.4L687.9,754l1.2-1.2L-37.5,26.2L-38.6,27.4z
            M-36.4,25.1l726.6,726.7l1.2-1.2L-35.3,24L-36.4,25.1z M-34.2,22.9l726.6,726.7l1.2-1.2L-33,21.8L-34.2,22.9z M-32,20.7 l726.6,726.7l1.2-1.2L-30.8,19.5L-32,20.7z M-29.8,18.5l726.6,726.6l1.2-1.2L-28.6,17.3L-29.8,18.5z M-27.5,16.3L699,742.9l1.2-1.2 L-26.4,15.1L-27.5,16.3z M-25.3,14l726.5,726.7l1.2-1.2L-24.2,12.9L-25.3,14z M-23.1,11.8l726.6,726.7l1.2-1.2L-22,10.7L-23.1,11.8z M-20.9,9.6l726.6,726.7l1.2-1.2L-19.7,8.5L-20.9,9.6z M-18.7,7.4L707.9,734l1.2-1.2L-17.5,6.2L-18.7,7.4z M-16.5,5.2l726.6,726.6
           l1.2-1.2L-15.3,4L-16.5,5.2z M-14.2,3l726.5,726.6l1.2-1.2L-13.1,1.8L-14.2,3z M-12,0.7l726.5,726.7l1.2-1.2L-10.9-0.4L-12,0.7z M-9.8-1.5l726.6,726.7l1.2-1.2L-8.6-2.6L-9.8-1.5z M-7.6-3.7L719,723l1.2-1.2L-6.4-4.8L-7.6-3.7z M-5.4-5.9l726.6,726.6l1.2-1.2 L-4.2-7.1L-5.4-5.9z M-3.1-8.1l726.5,726.6l1.2-1.2L-2-9.3L-3.1-8.1z M-0.9-10.3l726.5,726.6l1.2-1.2L0.2-11.5L-0.9-10.3z M1.3-12.6
-          l726.5,726.7l1.2-1.2L2.4-13.7L1.3-12.6z M3.5-14.8l726.6,726.7l1.2-1.2L4.7-15.9L3.5-14.8z M5.7-17l726.6,726.7l1.2-1.2L6.9-18.2 L5.7-17z M7.9-19.2l726.6,726.6l1.2-1.2L9.1-20.4L7.9-19.2z M10.2-21.4l726.5,726.6l1.2-1.2L11.3-22.6L10.2-21.4z M12.4-23.6 L738.9,703l1.2-1.2L13.5-24.8L12.4-23.6z M14.6-25.9l726.6,726.7l1.2-1.2L15.7-27L14.6-25.9z M16.8-28.1l726.6,726.7l1.2-1.2 L18-29.2L16.8-28.1z"/>
+          l726.5,726.7l1.2-1.2L2.4-13.7L1.3-12.6z M3.5-14.8l726.6,726.7l1.2-1.2L4.7-15.9L3.5-14.8z M5.7-17l726.6,726.7l1.2-1.2L6.9-18.2 L5.7-17z M7.9-19.2l726.6,726.6l1.2-1.2L9.1-20.4L7.9-19.2z M10.2-21.4l726.5,726.6l1.2-1.2L11.3-22.6L10.2-21.4z M12.4-23.6 L738.9,703l1.2-1.2L13.5-24.8L12.4-23.6z M14.6-25.9l726.6,726.7l1.2-1.2L15.7-27L14.6-25.9z M16.8-28.1l726.6,726.7l1.2-1.2 L18-29.2L16.8-28.1z" />
         </defs>
         <clipPath id="SVGID_1">
             <use xlink:href="#mask0" style="overflow:visible;" />
@@ -390,8 +544,10 @@
             }
         </style>
         <g transform="translate(50,36)">
-            <text font-size='24px' transform="translate(3,0)" class="DatavizPageTitle" fill="white">2018 年国家自然科学基金</text>
-            <text font-size='44px' transform="translate(0,52)" class="DatavizPageTitle" fill="white">重点项目申请与资助情况统计</text>
+            <text font-size='24px' transform="translate(3,0)" class="DatavizPageTitle" fill="white">2018
+                年国家自然科学基金</text>
+            <text font-size='44px' transform="translate(0,52)" class="DatavizPageTitle"
+                fill="white">重点项目申请与资助情况统计</text>
         </g>
     </svg>
 </body>
